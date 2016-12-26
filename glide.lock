@@ -1,0 +1,25 @@
+hash: ec8b780994d300506b80a773cf14a546c4f5ffc0cc8d706a5568acfa8dc9a115
+updated: 2016-12-26T15:24:28.493469371-06:00
+imports:
+- name: github.com/dgrijalva/jwt-go
+  version: 9ed569b5d1ac936e6494082958d63a6aa4fff99a
+- name: github.com/gorilla/context
+  version: 08b5f424b9271eedf6f9f0ce86cb9396ed337a42
+- name: github.com/gorilla/mux
+  version: 757bef944d0f21880861c2dd9c871ca543023cba
+- name: github.com/joho/godotenv
+  version: 726cc8b906e3d31c70a9671c90a13716a8d3f50d
+- name: github.com/lib/pq
+  version: 5bf161122cd640c2a5a2c1d7fa49ea9befff31dd
+  subpackages:
+  - oid
+- name: github.com/unrolled/render
+  version: df76b7c9818cdcf458b4c81acbe29d093ff3080f
+- name: github.com/urfave/negroni
+  version: cd9734011043904139c24dbad9a71b21f1586f36
+- name: golang.org/x/crypto
+  version: f6b343c37ca80bfa8ea539da67a0b621f84fab1d
+  subpackages:
+  - bcrypt
+  - blowfish
+devImports: []

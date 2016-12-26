@@ -7,6 +7,5 @@ import:
 - package: github.com/unrolled/render
 - package: github.com/urfave/negroni
 - package: golang.org/x/crypto
-- package: golang.org/x/net/context
   subpackages:
   - bcrypt
