@@ -8,4 +8,4 @@ install:
   - glide install
   - cd $GOPATH/src/github.com/mattmac4241/chat-auth
 script:
- - go test -v ./...
+ - go test -v github.com/mattmac4241/chat-auth/service
