@@ -1,0 +1,11 @@
+package: github.com/mattmac4241/chat-auth
+import:
+- package: github.com/dgrijalva/jwt-go
+- package: github.com/gorilla/mux
+- package: github.com/joho/godotenv
+- package: github.com/lib/pq
+- package: github.com/unrolled/render
+- package: github.com/urfave/negroni
+- package: golang.org/x/crypto
+  subpackages:
+  - bcrypt
