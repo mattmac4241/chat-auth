@@ -1,0 +1,22 @@
+store:
+    # data-only container
+    image: postgres:latest # reuse postgres container
+    volumes:
+        - /var/lib/postgresql/data
+    command: "true"
+
+postgres:
+    image: postgres:latest
+    ports:
+        - "5432" # random available host port will be chosen, same as -P
+    volumes:
+        - /var/lib/postgresql/data
+
+go:
+    build: .
+    links:
+        - postgres:db
+    host:
+        - 'db'
+    ports:
+        - "8080"

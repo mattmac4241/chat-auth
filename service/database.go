@@ -2,6 +2,7 @@ package service
 
 import (
 	"database/sql"
+	"fmt"
 
 	_ "github.com/lib/pq" // needed
 )
@@ -27,6 +28,7 @@ func (d *databaseHandler) addToken(token *Token) error {
 func (d *databaseHandler) addUser(user *User) (uint, error) {
 	var lastInsertID uint
 	err := DB.QueryRow("INSERT INTO users (username, password, email) VALUES($1, $2, $3) returning id;", user.Username, user.Password, user.Email).Scan(&lastInsertID)
+	fmt.Println(err)
 	return lastInsertID, err
 }
 
@@ -38,7 +40,8 @@ func (d *databaseHandler) getUserByUsername(username string) (User, error) {
 
 func (d *databaseHandler) getTokenByKey(key string) (Token, error) {
 	var token Token
-	err := DB.QueryRow("SELECT KEY, CREATED_AT, EXPIRES_AT, USERID FROM TOKENS WHERE key=$1;", key).Scan(&token.Key, &token.CreatedAt, &token.ExpiresAt, &token.UserID)
+	err := DB.QueryRow("SELECT KEY, CREATED_AT, EXPIRES_AT, USER_ID FROM TOKENS WHERE key=$1;", key).Scan(&token.Key, &token.CreatedAt, &token.ExpiresAt, &token.UserID)
+	fmt.Println(err)
 	return token, err
 }
 
@@ -50,6 +53,8 @@ func (d *databaseHandler) getTokenByUserID(userID uint) (Token, error) {
 
 //InitDatabase setup db connection
 func InitDatabase(dbinfo string) (*sql.DB, error) {
-	db, err := sql.Open("postgres", dbinfo)
+	db, err := sql.Open("postgres", dbinfo+" sslmode=disable")
+	fmt.Println(err)
+	fmt.Println(db)
 	return db, err
 }

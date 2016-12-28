@@ -15,10 +15,9 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
-	dbname := os.Getenv("DBNAME")
-	user := os.Getenv("DBUSER")
-	password := os.Getenv("DBPASSWORD")
-	dbinfo := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable", user, password, dbname)
+	dburl := os.Getenv("DBURL")
+
+	dbinfo := fmt.Sprintf("%s", dburl)
 	db, err := service.InitDatabase(dbinfo)
 	if err != nil {
 		log.Fatal("Failed to connect to database")

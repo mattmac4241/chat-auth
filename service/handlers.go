@@ -3,6 +3,7 @@ package service
 import (
 	"encoding/json"
 	"io/ioutil"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -19,6 +20,7 @@ func registerUserHandler(formatter *render.Render, database Database) http.Handl
 			return
 		}
 		err = user.Save(database)
+		log.Print(err)
 		if err != nil {
 			formatter.JSON(w, http.StatusInternalServerError, "Failed to create user.")
 			return
