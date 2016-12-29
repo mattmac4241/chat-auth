@@ -49,6 +49,14 @@ func (t *testDatabase) getTokenByUserID(userID uint) (Token, error) {
 	return Token{}, errors.New("Token not found")
 }
 
+func (t *testDatabase) redisGetValue(key string) (string, error) {
+	return "", nil
+}
+
+func (t *testDatabase) redisSetValue(key, value string, seconds time.Duration) error {
+	return nil
+}
+
 func TestUserSave(t *testing.T) {
 	database := &testDatabase{}
 	user := User{Username: "Testname", Password: "testpassword", Email: "test@mail.com"}

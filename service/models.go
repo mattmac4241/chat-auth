@@ -46,6 +46,8 @@ func (u *User) afterSave(db Database) {
 		return
 	}
 	token.Save(db)
+	time := time.Duration(token.ExpiresAt)
+	db.redisSetValue(token.Key, string(token.UserID), time)
 }
 
 func (u *User) hashPassword() error {

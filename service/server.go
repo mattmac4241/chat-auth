@@ -14,7 +14,7 @@ func NewServer() *negroni.Negroni {
 
 	n := negroni.Classic()
 	mx := mux.NewRouter()
-	db := &databaseHandler{}
+	db := &dataHandler{}
 	initRoutes(mx, formatter, db)
 	n.UseHandler(mx)
 	return n
