@@ -1,5 +1,5 @@
-hash: ec8b780994d300506b80a773cf14a546c4f5ffc0cc8d706a5568acfa8dc9a115
-updated: 2016-12-26T15:24:28.493469371-06:00
+hash: 5b497b89339f95b3d3d0b473e85f53d6373f8de2d1fc851f1661e4e09983ab03
+updated: 2016-12-28T21:46:45.031157497-06:00
 imports:
 - name: github.com/dgrijalva/jwt-go
   version: 9ed569b5d1ac936e6494082958d63a6aa4fff99a
@@ -22,4 +22,16 @@ imports:
   subpackages:
   - bcrypt
   - blowfish
+- name: gopkg.in/bsm/ratelimit.v1
+  version: db14e161995a5177acef654cb0dd785e8ee8bc22
+- name: gopkg.in/redis.v4
+  version: c938162545c57136fa59879746bc65d0f1db3d1e
+  subpackages:
+  - bcrypt
+  - internal
+  - internal/consistenthash
+  - internal/errors
+  - internal/hashtag
+  - internal/pool
+  - internal/proto
 devImports: []
