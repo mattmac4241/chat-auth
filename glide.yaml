@@ -7,5 +7,6 @@ import:
 - package: github.com/unrolled/render
 - package: github.com/urfave/negroni
 - package: golang.org/x/crypto
+- package: gopkg.in/redis.v4
   subpackages:
   - bcrypt
