@@ -22,7 +22,17 @@ func main() {
 	if err != nil {
 		log.Fatal("Failed to connect to database")
 	}
+	redisAddress := os.Getenv("REDIS_ADDRESS")
+	redisPassword := os.Getenv("REDIS_PASSWORD")
+
+	redis, err := service.InitRedisClient(redisAddress, redisPassword)
+	if err != nil {
+		log.Fatal("Failed to connect to redis")
+	}
+
+	service.REDIS = redis
 	service.DB = db
+
 	port := os.Getenv("PORT")
 	if len(port) == 0 {
 		port = "3000"
